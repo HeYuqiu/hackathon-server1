@@ -24,10 +24,10 @@ import (
 
 func Hello(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimPrefix(r.URL.Path, "/hello/")
-	resp, _ := http.Get("http://server2:8082/hello/server1")
+	resp, _ := http.Get("http://server3:8082/hello/server1")
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	fmt.Fprintf(w, "hello, %s! I'm server1, and sever2 say:  %s \n ", name, string(body))
+	fmt.Fprintf(w, "hello, %s! I'm server1, and sever3 say:  %s \n ", name, string(body))
 }
 
 func main() {
